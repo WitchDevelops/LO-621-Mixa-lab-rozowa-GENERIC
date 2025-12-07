@@ -200,19 +200,23 @@ body {
   .es-formula {
     position: relative;
     z-index: 1;
-    margin-bottom: $padding-L;
 
     .es-header {
       text-align: center;
       padding: $padding-S;
-      background-color: $color-green;
+      background-color: $color-pink;
       color: $color-white;
     }
 
     &__bg {
       position: absolute;
-      width: 200%;
+      height: 100%;
       z-index: -1;
+    }
+
+    &__bg__img {
+      height: 100%;
+      object-fit: cover;
     }
 
     &__wrapper {
@@ -233,12 +237,12 @@ body {
     }
 
     &__textTitle {
-      color: $color-green;
+      color: $color-blue;
       font-weight: $fw-bold;
       width: 85%;
       max-width: 300px;
       text-align: center;
-      margin: auto;
+      margin-inline: auto;
       font-size: $fs-header;
       padding-block: calc($padding-XS/2);
     }
@@ -248,10 +252,50 @@ body {
     }
 
     &__plus {
-      color: $color-green;
+      color: $color-blue;
       font-size: calc(2 * $fs-header);
       font-weight: $fw-bold;
       text-align: center;
+    }
+
+    @media (min-width: 576px) {
+      .es-header {
+        max-width: max-content;
+        padding-inline: $padding-XXL;
+        border-radius: $padding-XS 0 $padding-XS 0;
+        margin: auto;
+      }
+
+      &__title {
+        padding-top: $padding-L;
+      }
+
+      &__single {
+        background-color: transparent;
+        backdrop-filter: unset;
+      }
+    }
+
+    @media (min-width: 720px) {
+      position: relative;
+      z-index: 0;
+
+      &__wrapper {
+        flex-direction: row;
+        padding: $padding-L;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      &__single {
+        flex-basis: 50%;
+        display: grid;
+        align-content: flex-start;
+        max-width: 375px;
+        &:hover {
+          box-shadow: $box-shadow;
+        }
+      }
     }
   }
 
@@ -623,26 +667,6 @@ body {
     .es-features__reference {
       padding-left: 70px;
     }
-
-    .es-formula__bg {
-      width: 100%;
-    }
-
-    .es-formula .es-header {
-      max-width: max-content;
-      padding-inline: $padding-XXL;
-      border-radius: $padding-XS 0 $padding-XS 0;
-      margin: auto;
-    }
-
-    .es-formula__title {
-      padding-top: $padding-L;
-    }
-
-    .es-formula__single {
-      background-color: transparent;
-      backdrop-filter: unset;
-    }
   }
 
   @media (min-width: 720px) {
@@ -698,28 +722,6 @@ body {
 
     .es-features__text {
       font-size: 1.5em;
-    }
-
-    .es-formula {
-      position: relative;
-      z-index: 0;
-    }
-
-    .es-formula__wrapper {
-      flex-direction: row;
-      padding: $padding-L;
-      justify-content: center;
-    }
-
-    .es-formula__single {
-      flex-basis: 50%;
-      display: grid;
-      align-content: flex-start;
-      max-width: 375px;
-    }
-
-    .es-formula__single:hover {
-      box-shadow: $box-shadow;
     }
 
     .es-products {
@@ -780,9 +782,4 @@ body {
     }
   }
 
-  @media (min-width: 992px) {
-    .es-bubbles {
-      margin-top: -110px;
-    }
-  }
 }
